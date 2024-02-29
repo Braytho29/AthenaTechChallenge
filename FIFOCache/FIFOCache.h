@@ -21,8 +21,8 @@ private:
 	std::mutex mutex;
 
 public:
-	FIFOCache(size_t maxSize) : maxSize(maxSize) {}
-	ValueType get(const KeyType& key);
+	FIFOCache(size_t maxSize) : maxSize(maxSize) {};
+	std::invoke_result_t<ValueType> get(const KeyType& key);
 	void put(const KeyType& key, const ValueType& value);
 	~FIFOCache();
 };

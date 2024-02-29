@@ -4,7 +4,7 @@
 #include "FIFOCache.h"
 
 template<typename KeyType, typename ValueType>
-ValueType FIFOCache<KeyType, ValueType>::get(const KeyType& key)
+std::invoke_result_t<ValueType> FIFOCache<KeyType, ValueType>::get(const KeyType& key)
 {
 
 	std::lock_guard<std::mutex> lock(mutex);

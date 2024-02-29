@@ -22,3 +22,10 @@ FActorTransform UProjectBlueprintFunctionLibrary::GenerateRandomLocationAndRotat
 
 	return FActorTransform(newLocation, newRotation);
 }
+
+void UProjectBlueprintFunctionLibrary::SetActorLocationRotation(AActor* actorObject, const FActorTransform& actorTransform) 
+{
+
+	// Moves camera object to new location and rotation from objecTransform
+	actorObject->SetActorLocationAndRotation(actorTransform.Location, actorTransform.Rotation, false, 0, ETeleportType::None);
+}

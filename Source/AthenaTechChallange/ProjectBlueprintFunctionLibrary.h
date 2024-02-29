@@ -38,7 +38,7 @@ class ATHENATECHCHALLANGE_API UProjectBlueprintFunctionLibrary : public UBluepri
 public:
 
 	UFUNCTION(BlueprintCallable,
-		meta = (ToolTip = "Generates a random location and rotation in bounding area."), Category = "BlueprintLibrary")
+			  meta = (ToolTip = "Generates a random location and rotation in bounding area."), Category = "BlueprintLibrary")
 	/**
 	 *	Returns a random location and rotation from a given set of boundaries.
 	 *
@@ -49,4 +49,14 @@ public:
 	*/
 	static FActorTransform GenerateRandomLocationAndRotation(const TArray<int32>& minBoundary, const TArray<int32>& maxBoundary,
 															  const TArray<float>& minRotation, const TArray<float>& maxRotation);
+
+	UFUNCTION(BlueprintCallable,
+			  meta = (ToolTip = "Moves camera object to new location and rotation"), Category = "BlueprintLibrary")
+	/**
+	 *	Sets actor at the desired location and rotation governed by transform.
+	 *
+	 *	@param actorObject An actor object
+	 *  @param objectTransform A struct containing a location and rotation
+	*/
+	static void SetActorLocationRotation(AActor* actorObject, const FActorTransform& actorTransform);
 };
